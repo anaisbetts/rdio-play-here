@@ -1,0 +1,9 @@
+node_modules
+temp
+.tmp
+dist
+.sass-cache
+chrome/app/components
+server/app/components
+chrome/package
+*.log

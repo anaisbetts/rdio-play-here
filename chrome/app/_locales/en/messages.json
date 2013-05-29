@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "rdio play here",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Chrome Extension to wake up Rdio",
+    "description": "The description of the application"
+  }
+}
