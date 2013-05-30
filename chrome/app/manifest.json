@@ -1,16 +1,15 @@
 {
-    "name": "__MSG_appName__",
+    "name": "Rdio Play Here",
     "version": "0.0.1",
     "manifest_version": 2,
-    "description": "__MSG_appDescription__",
+    "description": "Make any of your computers be the main Rdio player",
     "icons": {
         "16": "images/icon-16.png",
         "128": "images/icon-128.png"
     },
     "default_locale": "en",
     "background": {
-        "scripts": [],
-        "persistent": false
+        "persistent": true
     },
     "page_action": {
         "default_icon": {
@@ -22,20 +21,15 @@
     },
     "permissions": [
         "alarms",
+        "tabs",
     	"http://localhost:8080/"
     ],
     "options_page": "options.html",
     "content_scripts": [{
-        "matches": [
-            "http://*/*",
-        "https://*/*"
-            ],
-        "css": [
-            "styles/main.css"
-            ],
-        "js": [
-            "scripts/contentscript.js"
-            ],
+        "matches": [ "http://www.rdio.com/*" ],
+	"js": [
+            "scripts/rdio-inpage.js"
+        ],
         "run_at": "document_end",
         "all_frames": false
     }]
