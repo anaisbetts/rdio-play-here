@@ -1,6 +1,6 @@
 # Rdio Play Here
 
-So. I've got these:
+So. I've got a computer and a phone:
 
 <div>
 <img src="http://www.schultzeworks.com/wp-content/uploads/2009/12/407-philco-PC.png" width="300px"style="display:inline; "/>  
@@ -12,7 +12,7 @@ and since I subscribe to this:
 
 <img src="https://si0.twimg.com/profile_images/2908373120/3ce516ef7b7bccd0520ce890855ab239.png" width="64px" />
 
-I want to listen to the music on the **computer** but control it with the **phone**.
+I want to listen to the music on the **computer** with the good speakers but control it with the **phone** which doesn't (substitute "phone" with "laptop" at times).
 
 ## Doesn't Rdio already do this?
 
