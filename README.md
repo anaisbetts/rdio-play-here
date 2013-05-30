@@ -26,7 +26,7 @@ Rdio Play Here is a combination of a Chrome Extension (so it works everywhere Au
 
 ## How does it Work??
 
-The Chrome Extension runs a background page which connects via [Socket.io](http://socket.io) to the website and registers that the computer is online and sends it the *hostname* and the *Rdio user account name* (which it gets from injecting soem code into Rdio when the tab is open).
+The Chrome Extension runs a background page which connects via [Socket.io](http://socket.io) to the website and registers that the computer is online and sends it the *hostname* and the *Rdio user account name* (which it gets from injecting some code into Rdio when the tab is open).
 
 The site maintains the list of open connections and uses it to populate the list of running machines. When you click the machine, it sends a socket.io message to that Chrome background page, which opens a Rdio tab, then signals that tab to simulate clicking the Play button twice, which makes Rdio mark it as the active player.
 
