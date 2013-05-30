@@ -1,9 +1,15 @@
 "use strict"
 
-afterSetup = -> 
+chrome.runtime.onMessage.addListener (req, sender, sendResp) ->
+  return unless req.type == "getUser"
+
   stateJson = localStorage["/player/playerState"]
+  unless stateJson
+    sendResp needsLogin: true
+    return
 
   state = JSON.parse stateJson
-  console.log(JSON.stringify(state.station.user))
 
-window.setTimeout afterSetup, 250
+  sendResp
+    needsLogin: false
+    user: state.station.user
