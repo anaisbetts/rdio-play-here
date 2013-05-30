@@ -20,7 +20,7 @@ Yes! Rdio lets you remote control an **already playing** Rdio player. But that b
 
 ## Rdio Play Here: Send Rdio to any computer with an open Chrome Browser
 
-Rdio Play Here is a combination of a Chrome Extension and a website. Here's a mockup of the website. Super simple: if you click that machine, it sends a message to the browser running on that machine to double-tap the Play button, which will make it the currently playing Rdio, and all of the other open Rdio instances (like on your phone) will become remote controls.
+Rdio Play Here is a combination of a Chrome Extension (so it works everywhere Automagically™) and a website. Here's a mockup of the website. Super simple: if you click that machine, it sends a message to the browser running on that machine to double-tap the Play button, which will make it the currently playing Rdio, and all of the other open Rdio instances (like on your phone) will become remote controls.
 
 ![](http://cl.ly/image/2g161N1g2D2Y/content#png)
 
