@@ -10,7 +10,7 @@
     "default_locale": "en",
     "background": {
         "scripts": [],
-        "persistent": false
+        "persistent": true
     },
     "page_action": {
         "default_icon": {
