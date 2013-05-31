@@ -5,7 +5,7 @@ npm install -g grunt coffee
 npm install
 
 cd server
-grunt build && node app.js
+grunt build && coffee app.coffee
 ```
 
 ## How to install the Chrome Extension
