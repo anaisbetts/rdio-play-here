@@ -5,6 +5,9 @@ RdioStrategy = require("passport-rdio").Strategy
 port = process.env.PORT or 7000
 app = express()
 
+server = require("http").createServer(app)
+io = require('socket.io').listen(server)
+
 ##
 ## OAuth Bullshit
 ##
@@ -20,7 +23,7 @@ rdioSettings =
   consumerSecret: process.env.RDIO_SHARED_SECRET
   callbackURL: "http://localhost:" + port + "/auth/rdio/callback"
 
-passport.use new RdioStrategy(rdioSettings, (token, tokenSecret, profile, done) ->
+passport.use new RdioStrategy rdioSettings, (token, tokenSecret, profile, done) ->
   process.nextTick ->
     done null, profile
 
@@ -65,11 +68,10 @@ app.get "/logout", (req, res) ->
 app.get "/", (request, response) ->
   console.log(request.session)
   response.render("index.html")
-  
+
 
 ##
 ## Startup
 ##
 
-app.listen port, ->
-  console.log "Listening on " + port
+server.listen(port)
