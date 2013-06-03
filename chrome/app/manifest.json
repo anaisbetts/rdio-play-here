@@ -9,7 +9,12 @@
     },
     "default_locale": "en",
     "background": {
-        "persistent": true
+        "persistent": true,
+        "scripts": [
+            "scripts/uuid.js",
+            "scripts/socket.io.js",
+            "scripts/background_main.js"
+        ]
     },
     "page_action": {
         "default_icon": {
@@ -22,12 +27,12 @@
     "permissions": [
         "alarms",
         "tabs",
-    	"http://localhost:8080/"
+        "http://localhost:8080/"
     ],
     "options_page": "options.html",
     "content_scripts": [{
         "matches": [ "http://www.rdio.com/*" ],
-	"js": [
+        "js": [
             "scripts/rdio-inpage.js"
         ],
         "run_at": "document_end",

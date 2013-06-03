@@ -100,7 +100,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'test/spec',
                     src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
+                    dest: 'test/spec',
                     ext: '.js'
                 }]
             }
@@ -251,40 +251,6 @@ module.exports = function (grunt) {
 
     grunt.renameTask('regarde', 'watch');
 
-    grunt.registerTask('prepareManifest', function() {
-        var scripts = [];
-        var concat = grunt.config('concat') || {dist:{files:{}}};
-        var uglify = grunt.config('uglify') || {dist:{files:{}}};
-        var manifest = grunt.file.readJSON(yeomanConfig.app + '/manifest.json');
-
-        if (manifest.background.scripts) {
-            manifest.background.scripts.forEach(function (script) {
-                scripts.push(yeomanConfig.app + '/' + script);
-            });
-            concat.dist.files['<%= yeoman.dist %>/scripts/background.js'] = scripts;
-            uglify.dist.files['<%= yeoman.dist %>/scripts/background.js'] = '<%= yeoman.dist %>/scripts/background.js';
-        }
-
-        if (manifest.content_scripts) {
-            manifest.content_scripts.forEach(function(contentScript) {
-                if (contentScript.js) {
-                    contentScript.js.forEach(function(script) {
-                        uglify.dist.files['<%= yeoman.dist %>/' + script] = '<%= yeoman.app %>/' + script;
-                    });
-                }
-            });
-        }
-
-        grunt.config('concat', concat);
-        grunt.config('uglify', uglify);
-    });
-
-    grunt.registerTask('manifest', function() {
-        var manifest = grunt.file.readJSON(yeomanConfig.app + '/manifest.json');
-        manifest.background.scripts = ['scripts/background.js'];
-        grunt.file.write(yeomanConfig.dist + '/manifest.json', JSON.stringify(manifest, null, 2));
-    });
-
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
@@ -294,14 +260,12 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'prepareManifest',
         'useminPrepare',
+        'coffee',
         'concurrent:dist',
         'concat',
         'copy',
         'usemin',
-        'manifest',
-	'coffee',
         'compress'
     ]);
 
