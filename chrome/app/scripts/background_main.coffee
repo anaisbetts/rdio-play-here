@@ -3,7 +3,23 @@
 serverConnection = null
 
 connectToServer = (user) ->
-  console.log "Connected as " + user.url
+  return if serverConnection
+
+  browserUuid = localStorage["uuid"]
+  unless browserUuid
+    browserUuid = Math.uuid()
+    localStorage["uuid"] = browserUuid
+
+  dataToSend =
+    userUrl: user
+    browserUuid: browserUuid
+
+  serverConnection = io.connect 'http://localhost:7000'
+  serverConnection.on 'connect', -> 
+    serverConnection.emit 'hostMachine', dataToSend
+  
+  serverConnection.on 'activate', ->
+    console.log "activating Rdio now!"
 
 sendMessage = (tabId) -> 
   chrome.tabs.sendMessage tabId, type: "getUser", (resp) ->
